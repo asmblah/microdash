@@ -27,6 +27,23 @@ describe('each()', function () {
         ]);
     });
 
+    it('should support stopping iteration of an array early by returning false', function () {
+        var result = [];
+
+        each([4, 5, 6], function (value, key, collection) {
+            result.push({value: value, key: key, collection: collection});
+
+            if (key === 1) {
+                return false;
+            }
+        });
+
+        expect(result).to.deep.equal([
+            {value: 4, key: 0, collection: [4, 5, 6]},
+            {value: 5, key: 1, collection: [4, 5, 6]}
+        ]);
+    });
+
     it('should support iterating over an object with .length property', function () {
         var result = [];
 
@@ -70,6 +87,23 @@ describe('each()', function () {
         expect(result).to.deep.equal([
             {value: 22, key: 'myProp', collection: object},
             {value: 23, key: 'anotherProp', collection: object}
+        ]);
+    });
+
+    it('should support stopping iteration of an object early by returning false', function () {
+        var result = [];
+
+        each({a: 1, b: 2, c: 3}, function (value, key, collection) {
+            result.push({value: value, key: key, collection: collection});
+
+            if (key === 'b') {
+                return false;
+            }
+        });
+
+        expect(result).to.deep.equal([
+            {value: 1, key: 'a', collection: {a: 1, b: 2, c: 3}},
+            {value: 2, key: 'b', collection: {a: 1, b: 2, c: 3}}
         ]);
     });
 });

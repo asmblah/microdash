@@ -18,7 +18,9 @@ module.exports = function (object, iterator, thisArg) {
 
     if (isArray(object) || hasOwn.call(object, 'length')) {
         for (key = 0, length = object.length; key < length; key++) {
-            iterator.call(thisArg, object[key], key, object);
+            if (iterator.call(thisArg, object[key], key, object) === false) {
+                break;
+            }
         }
 
         return;
@@ -27,7 +29,9 @@ module.exports = function (object, iterator, thisArg) {
     /*jshint forin: false */
     for (key in object) {
         if (hasOwn.call(object, key)) {
-            iterator.call(thisArg, object[key], key, object);
+            if (iterator.call(thisArg, object[key], key, object) === false) {
+                break;
+            }
         }
     }
 };
