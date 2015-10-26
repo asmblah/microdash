@@ -16,6 +16,7 @@ var each = require('./src/each'),
     isArray = require('./src/isArray'),
     isBoolean = require('./src/isBoolean'),
     isNumber = require('./src/isNumber'),
+    isPlainObject = require('./src/isPlainObject'),
     isString = require('./src/isString'),
     map = require('./src/map');
 
@@ -27,6 +28,7 @@ module.exports = {
     isArray: isArray,
     isBoolean: isBoolean,
     isNumber: isNumber,
+    isPlainObject: isPlainObject,
     isString: isString,
     map: map
 };

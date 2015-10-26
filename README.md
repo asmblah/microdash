@@ -56,6 +56,13 @@ console.log(_.isNumber(123));   // true
 console.log(_.isNumber('hi'));  // false
 ```
 
+.isPlainObject(...)
+---------
+```javascript
+console.log(_.isPlainObject({a: 1}));   // true
+console.log(_.isPlainObject([1, 2]));   // false
+```
+
 .isString(...)
 ---------
 ```javascript

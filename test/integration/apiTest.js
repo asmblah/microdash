@@ -17,6 +17,7 @@ var each = require('../../src/each'),
     isArray = require('../../src/isArray'),
     isBoolean = require('../../src/isBoolean'),
     isNumber = require('../../src/isNumber'),
+    isPlainObject = require('../../src/isPlainObject'),
     isString = require('../../src/isString'),
     map = require('../../src/map'),
     microdash = require('../..');
@@ -52,6 +53,10 @@ describe('API', function () {
 
     it('should export .isNumber(...)', function () {
         expect(microdash.isNumber).to.equal(isNumber);
+    });
+
+    it('should export .isPlainObject(...)', function () {
+        expect(microdash.isPlainObject).to.equal(isPlainObject);
     });
 
     it('should export .isString(...)', function () {
