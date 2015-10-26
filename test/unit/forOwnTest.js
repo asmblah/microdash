@@ -65,4 +65,21 @@ describe('forOwn()', function () {
             {value: 23, key: 'anotherProp', collection: object}
         ]);
     });
+
+    it('should support stopping iteration early by returning false', function () {
+        var result = [];
+
+        forOwn({a: 1, b: 2, c: 3}, function (value, key, collection) {
+            result.push({value: value, key: key, collection: collection});
+
+            if (key === 'b') {
+                return false;
+            }
+        });
+
+        expect(result).to.deep.equal([
+            {value: 1, key: 'a', collection: {a: 1, b: 2, c: 3}},
+            {value: 2, key: 'b', collection: {a: 1, b: 2, c: 3}}
+        ]);
+    });
 });

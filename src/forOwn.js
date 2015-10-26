@@ -17,7 +17,9 @@ module.exports = function (object, iterator, thisArg) {
     /*jshint forin: false */
     for (key in object) {
         if (hasOwn.call(object, key)) {
-            iterator.call(thisArg, object[key], key, object);
+            if (iterator.call(thisArg, object[key], key, object) === false) {
+                break;
+            }
         }
     }
 };
