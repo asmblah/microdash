@@ -10,7 +10,8 @@
 'use strict';
 
 var forOwn = require('../../src/forOwn'),
-    expect = require('chai').expect;
+    expect = require('chai').expect,
+    sinon = require('sinon');
 
 describe('forOwn()', function () {
     it('should support iterating over an array as a plain object', function () {
@@ -81,5 +82,13 @@ describe('forOwn()', function () {
             {value: 1, key: 'a', collection: {a: 1, b: 2, c: 3}},
             {value: 2, key: 'b', collection: {a: 1, b: 2, c: 3}}
         ]);
+    });
+
+    it('should not iterate at all when object is null', function () {
+        var iteratee = sinon.spy();
+
+        forOwn(null, iteratee);
+
+        expect(iteratee).not.to.have.been.called;
     });
 });

@@ -10,7 +10,8 @@
 'use strict';
 
 var each = require('../../src/each'),
-    expect = require('chai').expect;
+    expect = require('chai').expect,
+    sinon = require('sinon');
 
 describe('each()', function () {
     it('should support iterating over an array', function () {
@@ -105,5 +106,13 @@ describe('each()', function () {
             {value: 1, key: 'a', collection: {a: 1, b: 2, c: 3}},
             {value: 2, key: 'b', collection: {a: 1, b: 2, c: 3}}
         ]);
+    });
+
+    it('should not iterate at all when object is null', function () {
+        var iteratee = sinon.spy();
+
+        each(null, iteratee);
+
+        expect(iteratee).not.to.have.been.called;
     });
 });
