@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "name": "microdash",
+  "description": "Tiny utilities for Node and the browser",
+  "keywords": [
+    "tiny",
+    "each",
+    "extend",
+    "map"
+  ],
+  "homepage": "https://github.com/asmblah/microdash",
+  "author": "Dan Phillimore <dan@ovms.co> (http://ovms.co)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asmblah/microdash"
+  },
+  "bugs": {
+    "email": "dan@ovms.co",
+    "url": "http://github.com/asmblah/microdash/issues"
+  },
+  "main": "index",
+  "scripts": {
+    "jshint": "jshint .",
+    "mocha": "mocha --recursive test/",
+    "test": "npm run jshint && npm run mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "jshint": "^2.8.0",
+    "lodash": "^3.10.1",
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0"
+  },
+  "engines": {
+    "node": ">=0.6"
+  },
+  "license": "MIT"
+}
