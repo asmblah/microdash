@@ -10,6 +10,7 @@
 'use strict';
 
 var each = require('./src/each'),
+    escapeRegExp = require('./src/escapeRegExp'),
     extend = require('./src/extend'),
     filter = require('./src/filter'),
     forOwn = require('./src/forOwn'),
@@ -23,6 +24,7 @@ var each = require('./src/each'),
 
 module.exports = {
     each: each,
+    escapeRegExp: escapeRegExp,
     extend: extend,
     filter: filter,
     forOwn: forOwn,

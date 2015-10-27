@@ -13,6 +13,12 @@ Contains support for only the following methods:
 _.each([1, 2, 3], function (value, key) { ... });
 ```
 
+.escapeRegExp(...)
+------------------
+```javascript
+console.log(_.escapeRegExp('My [string]')); // 'My \[string\]'
+```
+
 .extend(...)
 ------------
 ```javascript

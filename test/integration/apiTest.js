@@ -11,6 +11,7 @@
 
 var each = require('../../src/each'),
     expect = require('chai').expect,
+    escapeRegExp = require('../../src/escapeRegExp'),
     extend = require('../../src/extend'),
     filter = require('../../src/filter'),
     forOwn = require('../../src/forOwn'),
@@ -30,6 +31,10 @@ describe('API', function () {
 
     it('should export .each(...)', function () {
         expect(microdash.each).to.equal(each);
+    });
+
+    it('should export .escapeRegExp(...)', function () {
+        expect(microdash.escapeRegExp).to.equal(escapeRegExp);
     });
 
     it('should export .extend(...)', function () {
