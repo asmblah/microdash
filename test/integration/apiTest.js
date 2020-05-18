@@ -26,7 +26,7 @@ var each = require('../../src/each'),
 
 describe('API', function () {
     it('should export an object', function () {
-        expect(microdash).to.be.an.object;
+        expect(microdash).to.be.an('object');
     });
 
     it('should export .each(...)', function () {

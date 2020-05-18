@@ -21,17 +21,17 @@
   "main": "index",
   "scripts": {
     "jshint": "jshint .",
-    "mocha": "mocha --recursive test/",
+    "mocha": "mocha -r test/harness --recursive test/",
     "test": "npm run jshint && npm run mocha"
   },
   "dependencies": {},
   "devDependencies": {
-    "chai": "^3.4.0",
-    "jshint": "^2.8.0",
-    "lodash": "^3.10.1",
-    "mocha": "^2.3.3",
-    "sinon": "^1.17.2",
-    "sinon-chai": "^2.8.0"
+    "chai": "^4.2.0",
+    "jshint": "^2.11.1",
+    "lodash": "^4.17.15",
+    "mocha": "^7.1.2",
+    "sinon": "^9.0.2",
+    "sinon-chai": "^3.5.0"
   },
   "engines": {
     "node": ">=0.6"
