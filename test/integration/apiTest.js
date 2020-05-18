@@ -12,7 +12,7 @@
 var each = require('../../src/each'),
     expect = require('chai').expect,
     escapeRegExp = require('../../src/escapeRegExp'),
-    extend = require('../../src/extend'),
+    extend = require('../../src/extend')(Object),
     filter = require('../../src/filter'),
     forOwn = require('../../src/forOwn'),
     isArray = require('../../src/isArray'),

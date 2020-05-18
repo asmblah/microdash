@@ -25,7 +25,7 @@ var each = require('./src/each'),
 module.exports = {
     each: each,
     escapeRegExp: escapeRegExp,
-    extend: extend,
+    extend: extend(Object),
     filter: filter,
     forOwn: forOwn,
     isArray: isArray,
