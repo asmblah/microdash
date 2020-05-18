@@ -21,7 +21,7 @@ var each = require('../../src/each'),
     isNumber = require('../../src/isNumber'),
     isPlainObject = require('../../src/isPlainObject'),
     isString = require('../../src/isString'),
-    map = require('../../src/map'),
+    map = require('../../src/map')(Array),
     microdash = require('../..');
 
 describe('API', function () {

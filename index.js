@@ -34,5 +34,5 @@ module.exports = {
     isNumber: isNumber,
     isPlainObject: isPlainObject,
     isString: isString,
-    map: map
+    map: map(Array)
 };

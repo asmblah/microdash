@@ -11,7 +11,27 @@
 
 var each = require('./each');
 
-module.exports = function (collection, iteratee, thisArg) {
+/**
+ * Faster implementation using native Array.map(...) where supported
+ *
+ * @param {Array} collection
+ * @param {Function} iteratee
+ * @param {*} thisArg
+ * @return {Array}
+ */
+function fasterMap(collection, iteratee, thisArg) {
+    return collection.map(iteratee.bind(thisArg));
+}
+
+/**
+ * Manual implementation where Array.map(...) is not supported
+ *
+ * @param {Array} collection
+ * @param {Function} iteratee
+ * @param {*} thisArg
+ * @return {Array}
+ */
+function slowerMap(collection, iteratee, thisArg) {
     var result = [];
 
     each(collection, function (value, key) {
@@ -19,4 +39,8 @@ module.exports = function (collection, iteratee, thisArg) {
     });
 
     return result;
+}
+
+module.exports = function (Array) {
+    return Array.prototype.map ? fasterMap : slowerMap;
 };
