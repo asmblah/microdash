@@ -9,8 +9,6 @@
 
 'use strict';
 
-var getType = require('./getType');
-
 module.exports = function (object) {
-    return getType(object) === 'Boolean';
+    return typeof object === 'boolean';
 };
