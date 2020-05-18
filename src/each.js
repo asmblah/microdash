@@ -10,7 +10,7 @@
 'use strict';
 
 var hasOwn = {}.hasOwnProperty,
-    isArray = require('./isArray');
+    isArray = require('./isArray')(Array);
 
 module.exports = function (object, iterator, thisArg) {
     var key,

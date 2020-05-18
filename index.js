@@ -28,7 +28,7 @@ module.exports = {
     extend: extend(Object),
     filter: filter,
     forOwn: forOwn,
-    isArray: isArray,
+    isArray: isArray(Array),
     isBoolean: isBoolean,
     isFunction: isFunction,
     isNumber: isNumber,
