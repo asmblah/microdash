@@ -10,33 +10,51 @@
 'use strict';
 
 var expect = require('chai').expect,
-    extend = require('../../src/extend');
+    extendFactory = require('../../src/extend');
 
 describe('extend()', function () {
-    it('should support extending one object with another', function () {
-        var object = {a: 1};
+    var extend;
 
-        extend(object, {b: 2});
+    describe('when Object.assign(...) is not supported', function () {
+        beforeEach(function () {
+            extend = extendFactory(function () {});
+        });
 
-        expect(object).to.deep.equal({a: 1, b: 2});
+        it('should support extending one object with another', function () {
+            var object = {a: 1};
+
+            extend(object, {b: 2});
+
+            expect(object).to.deep.equal({a: 1, b: 2});
+        });
+
+        it('should return the original object', function () {
+            var object = {prop: 21};
+
+            expect(extend(object, {another: 22})).to.equal(object);
+        });
+
+        it('should ignore inherited properties on source objects', function () {
+            var object = {a: 1},
+                source1 = {b: 2},
+                source2 = Object.create({c: 3});
+
+            source2.d = 4;
+
+            extend(object, source1, source2);
+
+            // `c` is not included as it is not an own property of the source object
+            expect(object).to.deep.equal({a: 1, b: 2, d: 4});
+        });
     });
 
-    it('should return the original object', function () {
-        var object = {prop: 21};
+    describe('when Object.assign(...) is supported', function () {
+        beforeEach(function () {
+            extend = extendFactory(Object);
+        });
 
-        expect(extend(object, {another: 22})).to.equal(object);
-    });
-
-    it('should ignore inherited properties on source objects', function () {
-        var object = {a: 1},
-            source1 = {b: 2},
-            source2 = Object.create({c: 3});
-
-        source2.d = 4;
-
-        extend(object, source1, source2);
-
-        // `c` is not included as it is not an own property of the source object
-        expect(object).to.deep.equal({a: 1, b: 2, d: 4});
+        it('should use Object.assign(...)', function () {
+            expect(extend).to.equal(Object.assign);
+        });
     });
 });

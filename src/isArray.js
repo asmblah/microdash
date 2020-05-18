@@ -11,6 +11,8 @@
 
 var getType = require('./getType');
 
-module.exports = function (object) {
-    return getType(object) === 'Array';
+module.exports = function (Array) {
+    return Array.isArray || function (object) {
+        return getType(object) === 'Array';
+    };
 };

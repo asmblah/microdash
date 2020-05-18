@@ -9,8 +9,6 @@
 
 'use strict';
 
-var getType = require('./getType');
-
 module.exports = function (object) {
-    return getType(object) === 'Number';
+    return typeof object === 'number';
 };

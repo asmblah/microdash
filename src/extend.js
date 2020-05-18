@@ -12,14 +12,16 @@
 var each = require('./each'),
     forOwn = require('./forOwn');
 
-module.exports = function (object) {
-    var sources = [].slice.call(arguments, 1);
+module.exports = function (Object) {
+    return Object.assign || function (object) {
+        var sources = [].slice.call(arguments, 1);
 
-    each(sources, function (source) {
-        forOwn(source, function (value, key) {
-            object[key] = value;
+        each(sources, function (source) {
+            forOwn(source, function (value, key) {
+                object[key] = value;
+            });
         });
-    });
 
-    return object;
+        return object;
+    };
 };

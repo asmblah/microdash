@@ -12,16 +12,16 @@
 var each = require('../../src/each'),
     expect = require('chai').expect,
     escapeRegExp = require('../../src/escapeRegExp'),
-    extend = require('../../src/extend'),
+    extend = require('../../src/extend')(Object),
     filter = require('../../src/filter'),
     forOwn = require('../../src/forOwn'),
-    isArray = require('../../src/isArray'),
+    isArray = require('../../src/isArray')(Array),
     isBoolean = require('../../src/isBoolean'),
     isFunction = require('../../src/isFunction'),
     isNumber = require('../../src/isNumber'),
     isPlainObject = require('../../src/isPlainObject'),
     isString = require('../../src/isString'),
-    map = require('../../src/map'),
+    map = require('../../src/map')(Array),
     microdash = require('../..');
 
 describe('API', function () {
