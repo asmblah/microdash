@@ -9,7 +9,8 @@
 
 'use strict';
 
-var each = require('./each');
+var each = require('./each'),
+    map = Array.prototype.map;
 
 /**
  * Faster implementation using native Array.map(...) where supported
@@ -20,7 +21,7 @@ var each = require('./each');
  * @return {Array}
  */
 function fasterMap(collection, iteratee, thisArg) {
-    return collection.map(iteratee.bind(thisArg));
+    return map.call(collection, iteratee.bind(thisArg));
 }
 
 /**

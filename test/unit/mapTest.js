@@ -70,6 +70,16 @@ describe('map()', function () {
             expect(result).to.deep.equal([6, 8, 10]);
         });
 
+        it('should support mapping an Arguments instance', function () {
+            var result = (function () {
+                return map(arguments, function (number) {
+                    return number * 2;
+                });
+            }(7, 10, 4));
+
+            expect(result).to.deep.equal([14, 20, 8]);
+        });
+
         it('should pass the correct arguments to the iteratee', function () {
             var result = [];
 
