@@ -1,7 +1,7 @@
 Microdash
 =========
 
-[![Build Status](https://secure.travis-ci.org/asmblah/microdash.png?branch=master)](http://travis-ci.org/asmblah/microdash)
+[![Build Status](https://github.com/asmblah/microdash/workflows/CI/badge.svg)](https://github.com/asmblah/microdash/actions?query=workflow%3ACI)
 
 Micro version of lodash.
 
