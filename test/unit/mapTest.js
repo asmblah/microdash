@@ -55,6 +55,14 @@ describe('map()', function () {
 
             expect(result).to.deep.equal([6, 8, 10]);
         });
+
+        it('should return an empty array when null is given', function () {
+            expect(map(null, function () {})).to.deep.equal([]);
+        });
+
+        it('should return an empty array when undefined is given', function () {
+            expect(map(undefined, function () {})).to.deep.equal([]);
+        });
     });
 
     describe('when Array.prototype.map(...) is supported', function () {
@@ -106,6 +114,14 @@ describe('map()', function () {
             });
 
             expect(result).to.deep.equal([6, 8, 10]);
+        });
+
+        it('should return an empty array when null is given', function () {
+            expect(map(null, function () {})).to.deep.equal([]);
+        });
+
+        it('should return an empty array when undefined is given', function () {
+            expect(map(undefined, function () {})).to.deep.equal([]);
         });
     });
 });

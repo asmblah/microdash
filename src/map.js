@@ -21,7 +21,9 @@ var each = require('./each'),
  * @return {Array}
  */
 function fasterMap(collection, iteratee, thisArg) {
-    return map.call(collection, iteratee.bind(thisArg));
+    return collection !== null && typeof collection !== 'undefined' ?
+        map.call(collection, iteratee.bind(thisArg)) :
+        [];
 }
 
 /**
